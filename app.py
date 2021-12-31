@@ -12,6 +12,10 @@ mongo = PyMongo(app)
 def index():
    mars = mongo.db.mars.find_one()
    return render_template("index.html", mars=mars)
+# @app.route('/')
+# def home():
+#     return "Hello World"
+
 
 @app.route("/scrape")
 def scrape():
@@ -21,4 +25,4 @@ def scrape():
    return redirect('/', code=302)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
