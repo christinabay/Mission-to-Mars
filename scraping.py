@@ -5,7 +5,6 @@ import pandas as pd
 import datetime as dt
 from webdriver_manager.chrome import ChromeDriverManager
 
-
 def scrape_all():
     #initiate headless driver for deployment
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -21,7 +20,6 @@ def scrape_all():
     }
     browser.quit()
     return data
-
 
 def mars_news(browser):
 
@@ -61,7 +59,6 @@ def mars_news(browser):
 
     return news_title, news_p
 
-
     # ### Featured Images
 
 def featured_image(browser):
@@ -81,16 +78,12 @@ def featured_image(browser):
         # find the relative image url
         img_url_rel = img_soup.find('img', class_='fancybox-image').get('src')
 
-        # Find the relative image url
-        img_url_rel = img_soup.find('img', class_='fancybox-image').get('src')
-
     except AttributeError:
         return None
 
     # Use the base URL to create an absolute URL
     img_url = f'https://spaceimages-mars.com/{img_url_rel}'
     return img_url
-
 
 def mars_facts():
     # add try/except for error handling
